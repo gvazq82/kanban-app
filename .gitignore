@@ -3,4 +3,4 @@ build/
 coverage/
 .eslintcache
 
-.idea/vcs.xml
+.idea/

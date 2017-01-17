@@ -5,4 +5,3 @@ export default ({children, ...props}) => (
     {children}
   </div>
 );
-

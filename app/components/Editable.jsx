@@ -1,20 +1,19 @@
 import React from 'react';
 import classnames from 'classnames';
 
-
-// We could allow edit/value to be swapped here through props
-const Editable = ({editing, value, onEdit, className, ...props}) => {
+export default ({editing, value, onEdit, className, ...props}) => {
   if(editing) {
-    return <Editable.Edit
+    return <Edit
       className={className}
       value={value}
-      onEdit={onEdit} />;
+      onEdit={onEdit}
+      {...props} />;
   }
 
-  return <Editable.Value value={value} />;
-};
-
-Editable.Value = ({value, ...props}) => <span {...props}>{value}</span>
+  return <span className={classnames('value', className)} {...props}>
+    {value}
+  </span>;
+}
 
 class Edit extends React.Component {
   render() {
@@ -42,8 +41,3 @@ class Edit extends React.Component {
     }
   }
 }
-
-Editable.Edit = Edit;
-
-// We could export individual components too to allow modification
-export default Editable;
